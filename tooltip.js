@@ -7,12 +7,16 @@ class Tooltip extends HTMLElement {
     this.hideTooltip = this.hideTooltip.bind(this);
 
     this.attachShadow({ mode: "open" });
+
+    this.shadowRoot.innerHTML = `
+    <slot></slot>
+    <span>(?)</span>
+    `;
   }
 
   connectedCallback() {
     this.tooltipText = this.getAttribute("text");
-    const tooltipSpan = document.createElement("span");
-    tooltipSpan.textContent = "(?)";
+    const tooltipSpan = this.shadowRoot.querySelector("span");
     tooltipSpan.addEventListener("mouseenter", this.showTooltip);
     tooltipSpan.addEventListener("mouseleave", this.hideTooltip);
     this.shadowRoot.appendChild(tooltipSpan);
