@@ -60,6 +60,9 @@ class Modal extends HTMLElement {
 
   close() {
     console.log("closing..");
+
+    this.inputElm.value = "";
+    this.reconsentCheckbox.checked = false;
     this.style.display = "none";
   }
 }
