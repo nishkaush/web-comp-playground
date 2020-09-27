@@ -7,6 +7,7 @@
     <script src="tooltip.js"></script>
     <script src="colorful-link.js"></script>
     <script src="hide-show-button.js"></script>
+    <script src="modal.js"></script>
   </head>
   <body>
     <p>
@@ -17,5 +18,22 @@
     <a is="nk-link" href="https://www.google.com">Google</a>
 
     <nk-hide-show-btn is-visible="true">Hellooooooooo</nk-hide-show-btn>
+
+    <button>SHOW MODAL</button>
+
+    <nk-modal>
+      <h1 slot="header" class="my-header">Reconsent Confirmation</h1>
+      <p slot="body" class="my-body">Are you sure you want to consent to this?</p>
+    </nk-modal>
+
+    <script>
+      const showModalBtn = document.querySelector("button");
+      const nkModal = document.querySelector("nk-modal");
+      showModalBtn.addEventListener("click", () => nkModal.setAttribute("opened", ""));
+
+      nkModal.addEventListener("inputchanged", (event) => {
+        console.log("detail", event.detail);
+      });
+    </script>
   </body>
 </html>
