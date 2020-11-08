@@ -8,6 +8,7 @@
     <script src="colorful-link.js"></script>
     <script src="hide-show-button.js"></script>
     <script src="modal.js"></script>
+    <script src="custom-heading.js"></script>
   </head>
   <body>
     <p>
@@ -25,6 +26,28 @@
       <h1 slot="header" class="my-header">Reconsent Confirmation</h1>
       <p slot="body" class="my-body">Are you sure you want to consent to this?</p>
     </nk-modal>
+
+    <h1 is="nk-custom-heading">My Beautiful Heading</h1>
+
+    <div class="fieldset">
+      <div class="field qty">
+        <label class="label" for="qty"><span>Qty</span></label>
+        <div class="control control-qty-cart">
+          <span class="quantity-controls quantity-minus"></span>
+          <span class="quantity-controls quantity-plus"></span>
+        </div>
+      </div>
+      <div class="actions" style="font-size: 20px">
+        <button
+          type="submit"
+          title="Add to Cart"
+          class="action primary tocart"
+          id="product-addtocart-button"
+        >
+          <span><i class="fa fa-shopping-cart" style="color: white"></i>&nbsp;Add to Cart</span>
+        </button>
+      </div>
+    </div>
 
     <script>
       const showModalBtn = document.querySelector("button");
